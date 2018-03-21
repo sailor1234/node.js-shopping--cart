@@ -1,0 +1,137 @@
+<!--
+  Generated template for the SignupPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Customer Sign Up</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content >
+  <ion-list>
+    <ion-item-divider color="primary">personal Information</ion-item-divider>
+    <ion-item>
+      <ion-label>First Name</ion-label>
+      <ion-input type="text" [(ngModel)]="user.fname"></ion-input>
+    </ion-item>
+    
+    
+    <ion-item>
+      <ion-label>Last Name</ion-label>
+      <ion-input type="text" [(ngModel)]="user.lname"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label>Email</ion-label>
+      <ion-input type="text" [(ngModel)]="user.email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Username</ion-label>
+      <ion-input type="text" [(ngModel)]="user.username"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>password</ion-label>
+      <ion-input type="text" [(ngModel)]="user.password"></ion-input>
+    </ion-item>
+
+
+    <ion-item-divider color="primary">Billing address</ion-item-divider>
+    <ion-item>
+      <ion-label>Address</ion-label>
+      <ion-textarea type="text" maxlenght="80" [(ngModel)]="user.billing_address.address"></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Country</ion-label>
+      <ion-select [(ngModel)]="user.billing_address.country">
+        <ion-option value="Nigeria" selected="false">Nigeria</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>State</ion-label>
+      <ion-select [(ngModel)]="user.billing_address.state">
+        <ion-option value="kaduna" selected="false">kaduna</ion-option>
+        <ion-option value="kano">Kano</ion-option>
+        <ion-option value="Abia">Abia</ion-option>
+        <ion-option value="Kogi">Kogi</ion-option>
+        <ion-option value="Benue">Benue</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>City</ion-label>
+      <ion-input type="text" [(ngModel)]="user.billing_address.city"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Postal Code</ion-label>
+      <ion-input type="number" [(ngModel)]="user.billing_address.postalcode"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Phone</ion-label>
+      <ion-input type="tel" [(ngModel)]="user.billing_address.phone"></ion-input>
+    </ion-item>
+    
+    <!--
+      the shipping details here below
+    -->
+
+    <ion-item>
+      <ion-label>Same Shipping Details</ion-label>
+      <ion-checkbox (ionChange)="setBillingToShipping()"></ion-checkbox>
+    </ion-item>
+
+    <ion-item-divider color="primary" *ngIf="!billing_shipping_same">Shipping address></ion-item-divider>
+    <ion-item *ngIf="!billing_shipping_same">
+      <ion-label >Address</ion-label>
+      <ion-textarea type="text" maxlenght="80" [(ngModel)]="user.shipping_address.address"></ion-textarea>
+    </ion-item>
+
+    <ion-item *ngIf="!billing_shipping_same">
+      <ion-label>Country</ion-label>
+      <ion-select [(ngModel)]="country">
+        <ion-option value="Nigeria" selected="false">Nigeria</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item *ngIf="!billing_shipping_same">
+      <ion-label>State</ion-label>
+      <ion-select [(ngModel)]="state">
+        <ion-option value="kaduna" selected="false">kaduna</ion-option>
+        <ion-option value="kano">Kano</ion-option>
+        <ion-option value="Abia">Abia</ion-option>
+        <ion-option value="Kogi">Kogi</ion-option>
+        <ion-option value="Benue">Benue</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item *ngIf="!billing_shipping_same">
+      <ion-label>City</ion-label>
+      <ion-input type="text" [(ngModel)]="city"></ion-input>
+    </ion-item>
+
+    <ion-item *ngIf="!billing_shipping_same">
+      <ion-label>Postal Code</ion-label>
+      <ion-input type="number" [(ngModel)]="postalcode"></ion-input>
+    </ion-item>
+
+    <ion-item *ngIf="!billing_shipping_same">
+      <ion-label>Phone</ion-label>
+      <ion-input type="tel" [(ngModel)]="phone"></ion-input>
+    </ion-item>
+
+  </ion-list>
+
+</ion-content>
+<ion-footer>
+  <button ion-button block color="primary" (click)="signup()">Sign Up</button>
+</ion-footer>
